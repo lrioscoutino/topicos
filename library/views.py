@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from library.models import Library
 # Create your views here.
 
 def first_view(request):
@@ -15,3 +16,21 @@ def second_view(request):
         "number_list":number_list
     }
     return render(request,"index.html", context=context)
+
+def librerias_view(request):
+    librerias = Library.objects.all()
+    context = {
+        "librerias": librerias
+    }
+    return render(request, "lista_librerias.html", context=context)
+
+def crear_libreria(request):
+    if request.method == "POST":
+        library = Library()
+        library.name = request.POST['name']
+        library.address = request.POST['address']
+        library.responsable = request.POST['responsable']
+        library.save()
+    else:
+        return render(request, "crear_libreria.html")
+

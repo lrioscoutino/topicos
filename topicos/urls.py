@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from setuptools.extern import names
 
-from library.views import first_view, second_view
+from library.views import first_view, second_view, librerias_view, crear_libreria
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("ejemplo/", first_view, name="first-view"),
     path("ejemplo2/", second_view, name="secod-view"),
+    path("librerias/", librerias_view, name="librerias"),
+    path("librerias/crear/", crear_libreria, name="crear-libreria"),
 ]

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Responsable</th>
+  </tr>
+  {% for libreria in librerias %}
+  <tr>
+    <td>{{libreria.id}}</td>
+    <td>{{libreria.name}}</td>
+    <td>{{libreria.responsable}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+
+</body>
+</html>
